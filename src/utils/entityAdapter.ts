@@ -23,6 +23,7 @@ export default class EntityAdapter {
     }
 
     static add_array<T extends AnyObject, Id extends string>(store: Entities<T, Id>, items: Array<T>) {
+        if (!Array.isArray(items)) return;
         for (let index = 0; index < items.length; index++) {
             const element = items[index];
             this.add(store, element);

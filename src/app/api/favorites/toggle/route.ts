@@ -47,6 +47,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ status: "removed" });
         }
     } catch (_error) {
+        console.log(_error);
         return NextResponse.json({ error: "Failed to add favorite" }, { status: 500 });
     }
 }
