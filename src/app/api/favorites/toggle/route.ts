@@ -20,30 +20,45 @@ export async function POST(request: Request) {
     }
 
     try {
-        const is_exists = await prisma.favorite.findFirst({
-            where: { id: `${lat},${lon}`, session_id },
-            select: {
-                id: true,
-            },
-        });
-
-        if (!is_exists) {
-            await prisma.favorite.create({
-                data: {
+        const is_exists = await prisma.favorite
+            .findFirst({
+                where: {
+                    lat,
+                    lon,
                     session_id,
-                    lat: lat,
-                    lon: lon,
-                    id: `${lat},${lon}`,
                 },
+                select: {
+                    id: true,
+                },
+            })
+            .catch((res) => {
+                console.log("Erro while ss", res, { id: `${lat},${lon}`, session_id });
             });
+        if (!is_exists) {
+            await prisma.favorite
+                .create({
+                    data: {
+                        session_id,
+                        lat: lat,
+                        lon: lon,
+                        id: `${lat},${lon}`,
+                    },
+                })
+                .catch((res) => {
+                    console.log("Erro while create", res);
+                });
             return NextResponse.json({ status: "added" });
         } else {
-            await prisma.favorite.delete({
-                where: {
-                    session_id,
-                    id: `${lat},${lon}`,
-                },
-            });
+            await prisma.favorite
+                .delete({
+                    where: {
+                        session_id,
+                        id: `${lat},${lon}`,
+                    },
+                })
+                .catch((res) => {
+                    console.log("Erro while create", res);
+                });
             return NextResponse.json({ status: "removed" });
         }
     } catch (_error) {
