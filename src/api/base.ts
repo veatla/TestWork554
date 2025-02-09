@@ -64,7 +64,6 @@ class BaseAPI {
             params: queries,
             withCredentials,
         }).catch((res) => {
-            console.log(res);
             return res;
         });
 

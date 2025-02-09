@@ -27,7 +27,6 @@ export async function GET(request: Request) {
 
         return NextResponse.json(data);
     } catch (error) {
-        console.log(error);
         if (error instanceof AxiosError) {
             return NextResponse.json({ error: error.message }, { status: error.status });
         }

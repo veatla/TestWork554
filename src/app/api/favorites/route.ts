@@ -13,7 +13,6 @@ const externalResponse = axios.create({
 });
 export async function GET() {
     const session_id = (await cookies()).get("session_id")?.value;
-    console.log(`session_id`, session_id);
     if (!session_id) {
         return NextResponse.json([]);
     }

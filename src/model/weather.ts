@@ -27,7 +27,6 @@ export const weatherStore: AppStateCreator<WeatherStore> = (set) => ({
 
         set((store) => {
             weather_response.data.id = city;
-            console.log(weather_response.data);
 
             EntityAdapter.upsert(store.cities.entities, {
                 country: "",
