@@ -12,7 +12,7 @@ export enum RequestKeys {
     FORECAST_HOURLY,
     CURRENT_WEATHER,
 }
-
+/** list of api requests */
 class BaseAPI {
     private async fetch<T>(key: RequestKeys, config: AxiosRequestConfig): Promise<T> {
         const store = useStore.getState().fetch;

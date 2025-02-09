@@ -1,8 +1,15 @@
-// The latitude and longitude of London, UK
+/** 
+ * Function for validating ids
+ * Id = `{{lat}},{{lon}}`
+ * @returns id
+ */
 const validate_coords = (slug?: string) => {
     return parse_coords(slug)?.join(",");
 };
 
+/** 
+ * Parses id, extracts lat, lon and returns it
+ */
 export const parse_coords = (slug?: string) => {
     if (!slug?.length) return null;
     const [lat, lon] = decodeURIComponent(slug).split(",");

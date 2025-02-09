@@ -5,10 +5,11 @@ import { useStore } from "@/model";
 import FavoriteItem from "@/view/favorite-city";
 import Loader from "@/view/loader";
 
-const Home: React.FC = () => {
+const Page: React.FC = () => {
     const fetching = useStore((store) => store.fetch.fetching[RequestKeys.GET_FAVORITE]);
     const favorites = useStore((store) => store.cities.favorites.ids);
 
+    // Check if favorite cities being loaded
     if (fetching) return <Loader />;
 
     return (
@@ -20,4 +21,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export default Page;

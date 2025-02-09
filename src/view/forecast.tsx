@@ -1,17 +1,13 @@
 "use client";
 
-import { format } from "date-fns";
 import { AppStore, useStore } from "@/model";
 import { useRef, useState } from "react";
-import { ForecastEntry } from "../types/forecast";
-import Image from "next/image";
+import ForecastItem from "./forecast-item";
 
 
 const selector = {
     forecast: (id: string) => (store: AppStore) => store.weather.forecast.entities[id],
 };
-
-// Just for test hardcoded coords
 
 const ForecastHourly: React.FC<{
     id: string;
@@ -79,22 +75,5 @@ const ForecastHourly: React.FC<{
     );
 };
 
-const ForecastItem: React.FC<ForecastEntry> = (props) => {
-    return (
-        <li className="list-group-item text-center" key={props.dt}>
-            <div className="d-flex justify-content-center">
-                <Image
-                    src={`https://openweathermap.org/img/wn/${props.weather[0].icon}@2x.png`}
-                    alt={props.weather[0].main}
-                    width={24}
-                    height={24}
-                />
-            </div>
-            <h6 className="">{props.main.temp}&deg;</h6>
-            <p className="mb-0 text-secondary">{props.weather[0].main}</p>
-            <p className="mb-0"><small>{format(props.dt * 1000, "H:mm")}</small></p>
-        </li>
-    );
-};
 
 export default ForecastHourly;

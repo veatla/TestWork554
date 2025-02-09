@@ -2,13 +2,25 @@ type AnyObject = {
     [x: string]: unknown;
 }
 export interface Entities<T extends AnyObject, Id extends string> {
+    /** List of ids */
     ids: Array<string>;
+
+    /** 
+     * Hash map
+     * { [id]: object }
+     */
     entities: {
         [key: string]: T,
     };
+    /** Unique key field */
     key: Id;
 }
 
+/** 
+ * Feature from redux toolkit, that I recreated
+ * It's stores list of ids and hash map objects
+ * Because of react and rerenders I think it's a cool thing to use 
+ */
 export default class EntityAdapter {
     static create<T extends AnyObject, Id extends string>(initialState: Array<T>, id: Id) {
         const store: Entities<T, Id> = { entities: <Record<Id, T>>{}, ids: [], key: id };

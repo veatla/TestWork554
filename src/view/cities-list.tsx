@@ -3,12 +3,12 @@ import CityCard from "./cities-card";
 import { useStore } from "@/model";
 
 const CitiesList: React.FC<{
-    onClear: () => void
+    onClear: () => void;
 }> = ({ onClear }) => {
     const fetching = useStore((store) => store.fetch.fetching);
     const cities = useStore((store) => store.search.entities.ids);
 
-    if (fetching[RequestKeys.CITIES])
+    if (fetching[RequestKeys.CITIES]) {
         return (
             <div className="card position-absolute b-0 z-3 w-100">
                 <ul className="list-group list-group-flush align-items-center">
@@ -18,6 +18,7 @@ const CitiesList: React.FC<{
                 </ul>
             </div>
         );
+    }
 
     if (!cities.length) return null;
 
