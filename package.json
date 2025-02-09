@@ -1,0 +1,48 @@
+{
+  "name": "testwork",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:css": "npx stylelint '**/*.{css,scss}'"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.3.1",
+    "@types/bootstrap": "^5.2.10",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "cookies-next": "^5.1.0",
+    "date-fns": "^4.1.0",
+    "immer": "^10.1.1",
+    "lodash.debounce": "^4.0.8",
+    "lodash.merge": "^4.6.2",
+    "nanoid": "^5.0.9",
+    "next": "15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sass": "^1.84.0",
+    "sqlite3": "^5.1.7",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/lodash.debounce": "^4.0.9",
+    "@types/lodash.merge": "^4.6.9",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.6",
+    "prisma": "^6.3.1",
+    "stylelint": "^16.14.1",
+    "stylelint-config-recommended-scss": "^14.1.0",
+    "stylelint-config-standard": "^37.0.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-scss": "^6.11.0",
+    "typescript": "^5"
+  }
+}
